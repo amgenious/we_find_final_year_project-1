@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+
+
+<section class="vh-100 gradient-custom" style="padding-top: 70px;">
+    <div class="container py-5 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-primary">Registration Form</h3>
+              {% for message in messages %}
+                    <p style="   color: red; text-align: center; font-size: 17px; font-weight: 600;">  {{message}}</p>
+                  {% endfor %}
+              <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input name="first_name" type="text" required id="firstName" class="form-control form-control-lg" />
+                      <label class="form-label" for="firstName">First Name</label>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                      <input name='last_name' type="text" required id="lastName" class="form-control form-control-lg" />
+                      <label class="form-label" for="lastName">Last Name</label>
+                    </div>
+  
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+  
+                    <div class="form-outline datepicker w-100">
+                      <input type="text" name="username" class="form-control form-control-lg" id="username" />
+                      <label for="birthdayDate" class="form-label">Username</label>
+                    </div>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <div class="form-outline">
+                        <input type="email" name="email" id="emailAddress" required class="form-control form-control-lg" />
+                        <label class="form-label"  for="emailAddress">Email</label>
+                      </div>
+  
+                  </div>
+                </div>
+  
+           
+  
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input name="password1" type="password" required id="firstName" class="form-control form-control-lg" />
+                        <label class="form-label" for="firstName">Password</label>
+                      </div>
+    
+                    </div>
+                    <div class="col-md-6 mb-4">
+    
+                      <div class="form-outline">
+                        <input name="password2" type="password" id="lastName" required class="form-control form-control-lg" />
+                        <label class="form-label" for="lastName">Repeat Password</label>
+                      </div>
+    
+                    </div>
+                  </div>
+
+                  <div class="">
+                    <p class="mb-0 ">Already have an account? <a  href="{% url 'login'%}"
+                            class="text-primary fw-bold">Sign
+                            Up</a></p>
+                </div>
+                 
+                <div class="mt-4 pt-2">
+                  <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                </div>
+  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+
+{% endblock %} 
